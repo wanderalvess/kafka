@@ -10,6 +10,10 @@ public class ErrorCustomHandler implements KafkaListenerErrorHandler {
     @Override
     public Object handleError(Message<?> message, ListenerExecutionFailedException e) {
         System.out.println("EXCEPTION_HANDLER ::: CAPTUREI UM ERRO");
+        System.out.println("Payload ::: " + message.getPayload());
+        System.out.println("Headers ::: " + message.getHeaders());
+        System.out.println("Offset ::: " + message.getHeaders().get("Kakfa_offset"));
+        System.out.println("Message exception ::: " + e.getMessage());
         return null;
     }
 
